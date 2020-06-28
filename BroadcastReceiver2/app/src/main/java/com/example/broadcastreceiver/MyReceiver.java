@@ -9,6 +9,8 @@ import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
+import androidx.core.app.NotificationCompat;
+
 public class MyReceiver extends BroadcastReceiver{
 
     @Override
@@ -39,5 +41,11 @@ public class MyReceiver extends BroadcastReceiver{
 
             }
         }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.notification_icon)
+                .setContentTitle(textTitle)
+                .setContentText(textContent)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
     }
 }
